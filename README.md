@@ -1,16 +1,59 @@
-# React + Vite
+# MidlTracker — Bitcoin L2 Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Real-time activity tracker for the [Midl](https://midl.xyz) Bitcoin Layer 2 network. Built for the Vibe Coding Competition.
 
-Currently, two official plugins are available:
+![Dashboard](screenshots/dashboard.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- **Live Dashboard** — Real-time block height, gas fees, TPS, and active Runes
+- **Network Visualizer** — Animated MIDL orb with live transaction pulse
+- **The Tape** — Streaming transaction table with type badges and BTC values
+- **Address Explorer** — Search any BTC address to view equity, charts, and token holdings
+- **Wallet Connect** — Xverse wallet integration via sats-connect
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+![Explorer](screenshots/explorer.png)
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Layer | Tech |
+|-------|------|
+| Framework | React 19 + Vite 7 |
+| Styling | Tailwind CSS 3 |
+| Animations | Framer Motion |
+| Wallet | sats-connect (Xverse) |
+| Charts | Canvas API (zero deps) |
+| Icons | Lucide React |
+
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173)
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── dashboard/     # StatCard, LiveFeed
+│   ├── explorer/      # AddressProfile (chart + holdings)
+│   ├── layout/        # AppShell (sidebar, header, search)
+│   └── visualizer/    # PulseOrb
+├── hooks/
+│   └── useWallet.js   # Xverse wallet connection
+├── services/
+│   ├── midl.js        # Network data (simulated)
+│   └── addressService.js  # Address lookup (mock)
+└── App.jsx            # View routing
+```
+
+## License
+
+MIT
